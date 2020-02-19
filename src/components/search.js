@@ -17,13 +17,16 @@ class Search extends Component{
     }
 
     componentDidMount(){
-        fetch('https://jsonplaceholder.typicode.com/users')
-        .then(res=>{
-            return res.json()
-        })
-        .then(data=>{
-            console.log(data)
-        })
+        //fetch('https://jsonplaceholder.typicode.com/users')
+        // fetch('https://api.linkedin.com/v1/people')
+        // .then(res=>{
+        //     //console.log(res)
+        //      return res
+        // })
+        // .then(data=>{
+        //     console.log(data)
+        // })
+
     }
 
     addItem(){
@@ -32,7 +35,14 @@ class Search extends Component{
             searchTerms.push(this.state.text)
             this.setState({searchTerms,text:''})
         } else{
+            
+            let el = document.getElementById('add-input')
+            el.classList.add('input-wiggle')
+            setTimeout(function(){
+                el.classList.remove('input-wiggle');
+            }, 500);
             this.setState({searchTerms,text:''})
+            
         }        
     }
 
