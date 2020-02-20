@@ -88,7 +88,7 @@ class Search extends Component{
                             <button className="close-button" onClick={()=>this.removeItem(index)}><i className="fa fa-close"></i></button>
                         </div> 
                     )
-                } )}
+                })}
                 <div id="add-item-container">
                     <input id="add-input" value={this.state.text} onChange={(e)=>this.updateText(e)} placeholder="Add Keyword..."></input>
                     <button id="add-button" className="button" onClick={this.addItem}>Add</button>

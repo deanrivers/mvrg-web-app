@@ -46,6 +46,7 @@ class Social extends Component{
 
         return(
             <div id="main-social-container">
+                
                <div id="main-social-list-container">
                     <FadeIn transitionDuration={500} delay={400}>
                         {feedList}  

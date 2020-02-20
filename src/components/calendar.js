@@ -1,7 +1,8 @@
 import React, {Component} from 'react'
 import FullCalendar from '@fullcalendar/react'
 import dayGridPlugin from '@fullcalendar/daygrid'
-import interactionPlugin from "@fullcalendar/interaction"; // needed for dayClick
+import interactionPlugin from "@fullcalendar/interaction"
+import resourceTimelinePlugin from '@fullcalendar/resource-timeline'
 import FadeIn from 'react-fade-in'
 // import './main.scss'
 
@@ -22,12 +23,13 @@ class Calendar extends Component{
                 <FadeIn>
                     <FullCalendar 
                     dateClick={this.handleDateClick}
-                    // defaultView="dayGridMonth"
-                    plugins={[dayGridPlugin,interactionPlugin ]}
+                    defaultView="dayGridMonth"
+                    plugins={[dayGridPlugin,interactionPlugin]}
                     weekends={false}
                     events={[
                       { title: 'event 1', date: '2020-02-13' },
-                      { title: 'Tay chay concert', date: '2020-02-20' }
+                      { title: 'Tay chay concert', date: '2020-02-20' },
+                      { title: 'Tay chay concert', date: '2020-02-20' },
                     ]}
                     />
                 </FadeIn>
