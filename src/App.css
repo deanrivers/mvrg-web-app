@@ -287,6 +287,24 @@ h1{
   animation: wiggle 0.5s ease-in-out;
 }
 
+/* calendars */
+#main-calendar-holder{
+  display: flex;
+  justify-content: center;
+  margin-top: 10%;
+}
+
+#day-calendar{
+  width: 30%;
+}
+#month-calendar{
+  width: 70%;
+}
+
+.fc-body > .fc-day-grid,.fc-widget-content{
+  height: 22px;
+}
+
 @keyframes wiggle{
   75% { transform: rotate(5deg); }
    80% { transform: rotate(-5deg); }
