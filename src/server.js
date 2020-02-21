@@ -1,22 +1,3 @@
-// const express = require('express');
-// const bodyParser = require('body-parser')
-// const path = require('path');
-// const app = express();
-// const port = process.env.PORT || 8080;
-// app.use(express.static(path.join(__dirname, 'build')));
-
-// app.get('/ping', function (req, res) {
-//  return res.send('pong');
-// });
-
-// app.get('/', function (req, res) {
-//   res.sendFile(path.join(__dirname, 'build', 'index.html'));
-// });
-
-// app.listen(process.env.PORT || 8080);
-// // app.listen(port, () => console.log(`Listening on port ${port}`));
-// console.log(`Listening on port ${port}`)
-
 const express = require('express');
 const app = express();
 const port = process.env.PORT || 5000;
@@ -29,7 +10,8 @@ app.listen(port, () => console.log(`Listening on port ${port}`));
 
 // create a GET route
 app.get('/express_backend', async (req, res) => {
-  //res.send({ express: 'YOUR EXPRESS BACKEND IS CONNECTED TO REACT' });
+    // res.send({ express: 'YOUR EXPRESS BACKEND IS CONNECTED TO REACT' });
+    // console.log(req.body)
     const accessToken = '1230503856813084672-OhPWOMQgk1mxeXNyeX4nc4ViewDOhq'
     const twitterCredentials = {
         client: {
@@ -63,7 +45,7 @@ app.get('/express_backend', async (req, res) => {
         }
 
     try{
-       const response = await axios.get('https://api.twitter.com/1.1/search/tweets.json?q=turtles%20bears', config)
+        const response = await axios.get('https://api.twitter.com/1.1/search/tweets.json?q=turtles%20bears', config)
         const data = await response.data
 
         res.send(data) 

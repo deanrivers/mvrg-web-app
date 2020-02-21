@@ -7,7 +7,8 @@ class Search extends Component{
             text: '',
             list: [1,2,3,4,5,6,7,8,9,10],
             defaultSearchTerms: ['MVRG','Marketing','Market Research','Church & Dwight','Phillip Morris'],
-            searchTerms:[]
+            searchTerms:[],
+            twitterData: []
         }
         this.addItem = this.addItem.bind(this)
         this.removeItem = this.removeItem.bind(this)
@@ -15,41 +16,7 @@ class Search extends Component{
         this.resetFilter = this.resetFilter.bind(this)
         this.filterResults = this.filterResults.bind(this)
     }
-
-    componentDidMount(){
-        //Twitter creds
-        //API key:OgBtfenn7MGg0OqJdJiT0SV27
-        //API secret key:r2nn8JKZlYpSknTe04UBipP4UL54n7A6rS2qg0kBXVhftOBGYL
-        //Access token :1230503856813084672-OhPWOMQgk1mxeXNyeX4nc4ViewDOhq
-        //Access token secret :pE8tMwuX91YhsGZfoVuKuCPt3FM9Yy2eRtye5zmeD819Z
-        //Bearer Token: AAAAAAAAAAAAAAAAAAAAAMaGCgEAAAAAo%2Fs2TjoIE3SWvpCdtyGniPj6qJU%3DIpGfkVWWJ12R53Pelk1N0aWYkvfnhWD4GkV8FiqjzAHJBq1Umq
-
-        
-
-        var Twit = require('twit')
- 
-        var T = new Twit({
-        consumer_key:         'OgBtfenn7MGg0OqJdJiT0SV27',
-        consumer_secret:      'r2nn8JKZlYpSknTe04UBipP4UL54n7A6rS2qg0kBXVhftOBGYL',
-        access_token:         '1230503856813084672-OhPWOMQgk1mxeXNyeX4nc4ViewDOhq',
-        access_token_secret:  'pE8tMwuX91YhsGZfoVuKuCPt3FM9Yy2eRtye5zmeD819Z',
-        timeout_ms:           60*1000,  // optional HTTP request timeout to apply to all requests.
-        strictSSL:            false,     // optional - requires SSL certificates to be valid.
-        })
-
-       this.callBackendAPI()
-    }
-
-    callBackendAPI = async () => {
-        const response = await fetch('/express_backend');
-        const body = await response.json();
-    
-        if (response.status !== 200) {
-          throw Error(body.message) 
-        }
-        console.log(body)
-        return body;
-      };
+     
 
     addItem(){
         let searchTerms = this.state.searchTerms
@@ -87,7 +54,7 @@ class Search extends Component{
     }
 
     filterResults(){
-
+        this.props.filterAPI(this.state.searchTerms)
     }
 
     render(){
