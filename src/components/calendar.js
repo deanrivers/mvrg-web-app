@@ -20,6 +20,10 @@ class Calendar extends Component{
     }
     calendarComponentRef = React.createRef()
 
+    componentDidMount(){
+        this.retrieveEvents()
+    }
+
     handleDateClick = (arg) => { // bind with an arrow function
         //alert(arg.dateStr)
         let currentDay = arg.dateStr
@@ -27,6 +31,10 @@ class Calendar extends Component{
         this.setState({currentDay})
         calendarApi.gotoDate(currentDay) // call a method on the Calendar object
         console.log(this.state.currentDay)
+      }
+    
+      retrieveEvents(){
+          
       }
 
     render(){

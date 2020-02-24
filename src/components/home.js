@@ -6,9 +6,11 @@ import chatImage from '../assets/home/social_2.png'
 import formImage from '../assets/home/forms.png'
 import gameImage from '../assets/home/games.png'
 import employeeImage from '../assets/home/employees.png'
+import FadeIn from 'react-fade-in'
 
 let Home = () =>{
     return(
+        <FadeIn>
         <div id="main-home-container">
             <Link className="home-links" to="/calendar">
                 <img className="home-icons" src={calendarImage}></img>
@@ -38,6 +40,7 @@ let Home = () =>{
                 <img className="home-icons" src={gameImage}></img>
             </Link>
         </div>
+        </FadeIn>
     )
 }
 

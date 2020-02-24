@@ -8,13 +8,15 @@ class Search extends Component{
             list: [1,2,3,4,5,6,7,8,9,10],
             defaultSearchTerms: ['MVRG','Marketing','Market Research','Church & Dwight','Phillip Morris'],
             searchTerms:[],
-            twitterData: []
+            twitterData: [],
+            queryTerms: []
         }
         this.addItem = this.addItem.bind(this)
         this.removeItem = this.removeItem.bind(this)
         this.updateText = this.updateText.bind(this)
         this.resetFilter = this.resetFilter.bind(this)
         this.filterResults = this.filterResults.bind(this)
+        this.queryChange = this.queryChange.bind(this)
     }
      
 
@@ -31,15 +33,21 @@ class Search extends Component{
                 el.classList.remove('input-wiggle');
             }, 500);
             this.setState({searchTerms,text:''})
-            
         }        
     }
 
-    removeItem(index){
+    removeItem(index,item){
         console.log('This is the index:',index)
         let searchTerms = this.state.searchTerms
         searchTerms.splice(index,1)
         this.setState({searchTerms})
+
+        //remove from queryterms array
+        let queryTerms = this.state.queryTerms
+        var queryIndex = queryTerms.indexOf(item) //find index of the item to be removed
+        queryTerms.splice(queryIndex,1)
+        this.setState({queryTerms})
+
     }
 
     updateText(e){
@@ -54,7 +62,21 @@ class Search extends Component{
     }
 
     filterResults(){
-        this.props.filterAPI(this.state.searchTerms)
+        this.props.filterAPI(this.state.queryTerms)
+    }
+
+    queryChange(e){
+        let queryTerms = this.state.queryTerms
+
+        //add to query array if checked true
+        if(e.target.checked){
+            queryTerms.push(e.target.value)
+        } else if(!e.target.checked){
+            var index = queryTerms.indexOf(e.target.value) //find index of the item to be removed
+            queryTerms.splice(index,1)
+        }
+        this.setState({queryTerms})
+        console.log(this.state.queryTerms)
     }
 
     render(){
@@ -63,7 +85,7 @@ class Search extends Component{
                 {this.state.defaultSearchTerms.map( (item,index) => {
                     return(
                         <div key={index} className="search-term-children">
-                            <input type="checkbox" id={item} value={item}></input>
+                            <input type="checkbox" id={item} value={item} onClick={(e)=>this.queryChange(e)}></input>
                             <label for={item}>{item}</label>
                         </div>            
                         )
@@ -72,9 +94,9 @@ class Search extends Component{
                 {this.state.searchTerms.map( (item,index) =>{
                     return(
                         <div key={index} className="search-term-children">
-                            <input type="checkbox" id={item} value={item}></input>
+                            <input type="checkbox" id={item} value={item} onClick={this.queryChange}></input>
                             <label for={item}>{item}</label>
-                            <button className="close-button" onClick={()=>this.removeItem(index)}><i className="fa fa-close"></i></button>
+                            <button className="close-button" onClick={()=>this.removeItem(index,item)}><i className="fa fa-close"></i></button>
                         </div> 
                     )
                 })}
