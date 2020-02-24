@@ -16,7 +16,7 @@ class Social extends Component {
     };
     this.filterAPI = this.filterAPI.bind(this);
   }
-
+//
   componentDidMount() {
     if(this.state.searchTerms>0){
       this.callBackendAPI();
