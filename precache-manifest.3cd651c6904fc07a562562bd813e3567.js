@@ -1,31 +1,31 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "f19a2dc1b3e3459e0a98d61a8e32e3b3",
+    "revision": "8aeb33f582a69d67c1db5edcfc1f53c6",
     "url": "/mvrg-web-app/index.html"
   },
   {
-    "revision": "fea37d0734e13a493bdd",
+    "revision": "80cc6e5474151876aaf6",
     "url": "/mvrg-web-app/static/css/2.dc08fe7a.chunk.css"
   },
   {
-    "revision": "ca0ce8d927d907a345a1",
+    "revision": "17b2c52ee691172f7bee",
     "url": "/mvrg-web-app/static/css/main.a236abcb.chunk.css"
   },
   {
-    "revision": "fea37d0734e13a493bdd",
-    "url": "/mvrg-web-app/static/js/2.d0c019f6.chunk.js"
+    "revision": "80cc6e5474151876aaf6",
+    "url": "/mvrg-web-app/static/js/2.1b906632.chunk.js"
   },
   {
     "revision": "dc29125a3e60460bc2514ea8e410635a",
-    "url": "/mvrg-web-app/static/js/2.d0c019f6.chunk.js.LICENSE.txt"
+    "url": "/mvrg-web-app/static/js/2.1b906632.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "ca0ce8d927d907a345a1",
-    "url": "/mvrg-web-app/static/js/main.82b9e236.chunk.js"
+    "revision": "17b2c52ee691172f7bee",
+    "url": "/mvrg-web-app/static/js/main.c5b16233.chunk.js"
   },
   {
-    "revision": "ddc295d773092268bde0",
-    "url": "/mvrg-web-app/static/js/runtime-main.ef56aa61.js"
+    "revision": "c57fe7287f00adff620b",
+    "url": "/mvrg-web-app/static/js/runtime-main.b6210607.js"
   },
   {
     "revision": "5601cf2d9f936889cfba38c7723377ed",
