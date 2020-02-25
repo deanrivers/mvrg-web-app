@@ -4,6 +4,11 @@ const port = process.env.PORT || 5000;
 const router = express.Router();
 const axios = require('axios');
 const url = require('url')
+const keys = require('./keys.js')
+
+// const dotenv = require('dotenv')
+// dotenv.config()
+// console.log(dotenv.config)
 
 
 // console.log that your server is up and running
@@ -13,9 +18,17 @@ app.listen(port, () => console.log(`Listening on port ${port}`));
 app.get('/express_backend/:searchTerm', async (req, res) => {
   var searchTerms = req.params.searchTerm.split(',');
   //console.log(searchTerms)
-
-  let x = searchTerms.map( item=>{
-    return '%20'+item
+  console.log(searchTerms)
+  //use map to add string to each item
+  let x = searchTerms.map( (item,index)=>{
+    if(index==0){ //first index
+      return '('+item+'%20'
+    } else if(index==searchTerms.length-1){ //last index
+      return '%20'+item+')'
+    } else{ //everything else in between
+      return 'OR%20'+item+'%20OR'
+      //(soccer%20OR%20basketball%20OR%20india)
+    }
   })
 
   console.log(x)
@@ -24,11 +37,11 @@ app.get('/express_backend/:searchTerm', async (req, res) => {
     //console.log(req)
     // res.send({ express: 'YOUR EXPRESS BACKEND IS CONNECTED TO REACT' });
     // console.log(req.body)
-    const accessToken = '1230503856813084672-OhPWOMQgk1mxeXNyeX4nc4ViewDOhq'
+    const accessToken = keys.REACT_APP_ACCESS_TOKEN
     const twitterCredentials = {
         client: {
-          id: 'OgBtfenn7MGg0OqJdJiT0SV27',
-          secret: 'r2nn8JKZlYpSknTe04UBipP4UL54n7A6rS2qg0kBXVhftOBGYL'
+          id: keys.REACT_APP_ID,
+          secret: keys.REACT_APP_SECRET
         },
         auth: {
           tokenHost: 'https://api.twitter.com',
@@ -60,7 +73,7 @@ app.get('/express_backend/:searchTerm', async (req, res) => {
       
         let query = '?q='+completeQuery
         
-
+        //(soccer%20OR%20basketball)
         
 
         let completeURL = 'https://api.twitter.com/1.1/search/tweets.json'+query

@@ -8,6 +8,8 @@ import gameImage from '../assets/home/games.png'
 import employeeImage from '../assets/home/employees.png'
 import FadeIn from 'react-fade-in'
 
+console.log(process.env.ACCESS_TOKEN)
+
 let Home = () =>{
     return(
         <FadeIn>
