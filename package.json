@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "proxy": "http://localhost:5000",
+  "homepage": "https://deanrivers.github.io/mvrg-touch-app/",
   "dependencies": {
     "@fullcalendar/core": "^4.4.0",
     "@fullcalendar/daygrid": "^4.4.0",
@@ -17,6 +18,7 @@
     "concurrently": "^5.1.0",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
+    "gh-pages": "^2.2.0",
     "http-proxy-middleware": "^1.0.0",
     "nodemon": "^2.0.2",
     "react": "^16.12.0",
@@ -36,6 +38,8 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "server": "nodemon server.js",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "dev": "concurrently \"npm run server\" \"npm run start\""
   },
   "eslintConfig": {

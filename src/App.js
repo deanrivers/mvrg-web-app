@@ -7,6 +7,7 @@ import Calendar from './components/calendar'
 import Home from './components/home'
 import Social from './components/social'
 import Nav from './components/nav'
+import Games from './components/games'
 
 let App = () => {
   return (
@@ -20,6 +21,7 @@ let App = () => {
                 <Route path="/home" component={Home} exact />
                 <Route path="/social" component={Social} />
                 <Route path="/calendar" component={Calendar} />
+                <Route path="/games" component={Games} />
               </Switch>
             )}
           />

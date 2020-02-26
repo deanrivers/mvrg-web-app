@@ -3,13 +3,7 @@ const app = express();
 const port = process.env.PORT || 5000;
 const router = express.Router();
 const axios = require('axios');
-const url = require('url')
 const keys = require('./keys.js')
-
-// const dotenv = require('dotenv')
-// dotenv.config()
-// console.log(dotenv.config)
-
 
 // console.log that your server is up and running
 app.listen(port, () => console.log(`Listening on port ${port}`));
@@ -18,20 +12,24 @@ app.listen(port, () => console.log(`Listening on port ${port}`));
 app.get('/express_backend/:searchTerm', async (req, res) => {
   var searchTerms = req.params.searchTerm.split(',');
   //console.log(searchTerms)
-  console.log(searchTerms)
+  console.log('Before filter',searchTerms)
   //use map to add string to each item
   let x = searchTerms.map( (item,index)=>{
-    if(index==0){ //first index
-      return '('+item+'%20'
-    } else if(index==searchTerms.length-1){ //last index
-      return '%20'+item+')'
-    } else{ //everything else in between
-      return 'OR%20'+item+'%20OR'
-      //(soccer%20OR%20basketball%20OR%20india)
-    }
+    return item+'%20'
   })
 
-  console.log(x)
+  // for(var i = 0;i<searchTerms.length;i++){
+  //   if(i==0){
+  //     x.splice(i+1, 0, orOperator)
+  //   }
+  //   if(i==searchTerms.length-1){
+  //     x.splice(i, 0, orOperator)
+  //   }
+    
+  // }
+
+
+  console.log('Post filter',x)
   let completeQuery = x.join('')
   console.log('Complete Query:',completeQuery)
     //console.log(req)
@@ -54,9 +52,7 @@ app.get('/express_backend/:searchTerm', async (req, res) => {
       const twitterTokenConfig = {
         scope: 'read',
       };
-    
 
-    
     try{
         const result = await twitterOauth2.clientCredentials.getToken(twitterTokenConfig);
         const accessTokenObject = twitterOauth2.accessToken.create(result);
@@ -72,11 +68,10 @@ app.get('/express_backend/:searchTerm', async (req, res) => {
     try{
       
         let query = '?q='+completeQuery
-        
-        //(soccer%20OR%20basketball)
-        
 
-        let completeURL = 'https://api.twitter.com/1.1/search/tweets.json'+query
+        //(soccer%20OR%20basketball)
+
+        let completeURL = 'https://api.twitter.com/1.1/search/tweets.json'+query+'&tweet_mode=extended&result_type=recent'
         const response = await axios.get(completeURL, config)
         const data = await response.data
 

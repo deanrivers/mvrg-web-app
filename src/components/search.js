@@ -6,7 +6,7 @@ class Search extends Component{
         this.state = {
             text: '',
             list: [1,2,3,4,5,6,7,8,9,10],
-            defaultSearchTerms: ['MVRG','Marketing','Market Research','Church & Dwight','Phillip Morris'],
+            defaultSearchTerms: ['Marketing'],
             searchTerms:[],
             twitterData: [],
             queryTerms: []
@@ -86,7 +86,7 @@ class Search extends Component{
                     return(
                         <div key={index} className="search-term-children">
                             <input type="checkbox" id={item} value={item} onClick={(e)=>this.queryChange(e)}></input>
-                            <label for={item}>{item}</label>
+                            <label className="search-item-label" for={item}>{item}</label>
                         </div>            
                         )
                     })}
@@ -95,7 +95,7 @@ class Search extends Component{
                     return(
                         <div key={index} className="search-term-children">
                             <input type="checkbox" id={item} value={item} onClick={this.queryChange}></input>
-                            <label for={item}>{item}</label>
+                            <label className="search-item-label" for={item}>{item}</label>
                             <button className="close-button" onClick={()=>this.removeItem(index,item)}><i className="fa fa-close"></i></button>
                         </div> 
                     )
