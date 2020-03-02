@@ -25,7 +25,6 @@ app.get('/express_backend/:searchTerm', async (req, res) => {
   //   if(i==searchTerms.length-1){
   //     x.splice(i, 0, orOperator)
   //   }
-    
   // }
 
 
@@ -33,13 +32,14 @@ app.get('/express_backend/:searchTerm', async (req, res) => {
   let completeQuery = x.join('')
   console.log('Complete Query:',completeQuery)
     //console.log(req)
-    // res.send({ express: 'YOUR EXPRESS BACKEND IS CONNECTED TO REACT' });
-    // console.log(req.body)
-    const accessToken = keys.REACT_APP_ACCESS_TOKEN
+    //res.send({ express: 'YOUR EXPRESS BACKEND IS CONNECTED TO REACT' });
+    //console.log(req.body)
+
+    //twitter
     const twitterCredentials = {
         client: {
-          id: keys.REACT_APP_ID,
-          secret: keys.REACT_APP_SECRET
+          id: keys.twitter.REACT_APP_ID,
+          secret: keys.twitter.REACT_APP_SECRET,
         },
         auth: {
           tokenHost: 'https://api.twitter.com',
@@ -47,43 +47,106 @@ app.get('/express_backend/:searchTerm', async (req, res) => {
           revokePath: '/oauth2/invalidate_token'
         }
       };
-      // Initialize the OAuth2 Library
-      const twitterOauth2 = require('simple-oauth2').create(twitterCredentials);
-      const twitterTokenConfig = {
-        scope: 'read',
-      };
 
+    // Initialize the OAuth2 Library for twitter
+    const twitterOauth2 = require('simple-oauth2').create(twitterCredentials);
+    
+    const twitterTokenConfig = {
+      scope: 'read',
+    };
+
+    //linkedin
+    const linkedInCredentials = {
+      client:{
+        id: keys.linkedin.REACT_APP_ID,
+        secret: keys.linkedin.REACT_APP_SECRET
+      },
+      auth: {
+        // tokenHost: 'https://api.linkedin.com',
+        tokenHost: 'https://www.linkedin.com/oauth/v2/accessToken',
+        // tokenPath: '/oauth2/token',
+        // revokePath: '/oauth2/invalidate_token'
+      }
+    }
+    
+    // Initialize the OAuth2 Library for linkedin
+    const linkedInOauth2 = require('simple-oauth2').create(linkedInCredentials);
+    const linkedInTokenConfig = {
+      scope: '<scope>',
+    };
+
+
+    //twitter
     try{
         const result = await twitterOauth2.clientCredentials.getToken(twitterTokenConfig);
         const accessTokenObject = twitterOauth2.accessToken.create(result);
-        const accessToken = accessTokenObject.token['access_token']
-        const config = {
-          headers: {
-            'Authorization': 'Bearer ' + accessToken,
-            'Content-Type': 'application/json',
-            'Accept-Encoding': 'gzip'
-          },
-        }
-
-    try{
+        // const accessToken = accessTokenObject.token['access_token']
+        //console.log(accessToken)
+        //console.log('result',result)
+      //   const config = {
+      //     headers: {
+      //       'Authorization': 'Bearer ' + accessToken,
+      //       'Content-Type': 'application/json',
+      //       'Accept-Encoding': 'gzip'
+      //     },
+      //   }
       
-        let query = '?q='+completeQuery
-
-        //(soccer%20OR%20basketball)
-
-        let completeURL = 'https://api.twitter.com/1.1/search/tweets.json'+query+'&tweet_mode=extended&result_type=recent'
-        const response = await axios.get(completeURL, config)
-        const data = await response.data
-
-        res.send(data) 
+      // try{
         
-        //console.log(data)
-        
+      //     let query = '?q='+completeQuery
+
+      //     //(soccer%20OR%20basketball)
+      //     //https://api.linkedin.com/v1/companies/1337/updates?start=20&count=10&format=json
+
+      //     let completeURL = 'https://api.twitter.com/1.1/search/tweets.json'+query+'&tweet_mode=extended&result_type=recent'
+      //     const response = await axios.get(completeURL, config)
+      //     const data = await response.data
+
+      //     res.send(data) 
+          
+      //     //console.log(data)
+          
+      // } catch(error){
+      //     console.log(error)
+      //     }
+    
     } catch(error){
         console.log(error)
         }
     
-} catch(error){
-    console.log(error)
-    }
+    //linkedin
+    try{
+      const result = await linkedInOauth2.clientCredentials.getToken(linkedInTokenConfig);
+      // const accessTokenObject = linkedInOauth2.accessToken.create(result);
+      // const accessToken = accessTokenObject.token['access_token']
+      const access_token = ''
+      //console.log(result)
+
+      //console.log(result)
+      // const config = {
+      //   headers: {
+      //     'Authorization': 'Bearer ' + accessToken,
+      //     'Content-Type': 'application/json',
+      //     'Accept-Encoding': 'gzip'
+      //   },
+      // }
+    
+      // try{
+      //     const response = await axios.get('https://api.linkedin.com/v1/companies/1337/updates?start=20&count=10&format=json', config)
+      //     const data = await response.data
+      //     res.send(data) 
+          
+      //     //console.log(data)
+          
+      // } catch(error){
+      //     console.log(error)
+      //     }
+    
+    } catch(error){
+      console.log(error)
+      }
+
+
+
+
 });

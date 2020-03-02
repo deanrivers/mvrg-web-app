@@ -37,10 +37,10 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "server": "nodemon server.js",
+    "server": "nodemon src/server.js",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
-    "dev": "concurrently \"npm run server\" \"npm run start\""
+    "dev": "concurrently --kill others \"npm run start\" \"npm run server\""
   },
   "eslintConfig": {
     "extends": "react-app"
