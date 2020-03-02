@@ -61,8 +61,6 @@ app.get('/express_backend/:searchTerm', async (req, res) => {
         const result = await twitterOauth2.clientCredentials.getToken(twitterTokenConfig);
         const accessTokenObject = twitterOauth2.accessToken.create(result);
         const accessToken = accessTokenObject.token['access_token']
-        console.log(accessToken)
-        console.log('result',result)
         const config = {
           headers: {
             'Authorization': 'Bearer ' + accessToken,
