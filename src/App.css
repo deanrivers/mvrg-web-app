@@ -124,7 +124,7 @@ h1{
   background: white;
   padding-top: 2%;
   transition: 0.3s;
-  width: 100%;
+  /* width: 100%; */
 }
 
 .twitter-timestamp{
@@ -379,3 +379,110 @@ h1{
 .search-item-label:hover{
   background-color: #d2d2d2;
 }
+
+/* forms section */
+#form-homepage-container{
+  margin-top: 10%;
+  display: flex;
+  justify-content: center;
+  /* flex-direction: column; */
+  width: 100%;
+  
+}
+
+#form-choices-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.form-choice-children > button{
+  margin: 5%;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 10px;
+  width: 400px;
+  height: 50px;
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+  transition: 0.3s ease-in-out;
+}
+
+.form-choice-children > button:hover{
+  background-color: #96bde4;
+}
+
+/* suggestions form */
+.form-container-children{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100%;
+}
+.form-container-children h1{
+  text-align: center;
+  width: 100%;
+}
+
+.name-container{
+  width: 100%;
+  text-align: left;
+}
+
+.name-input{
+    border-radius: 5px;
+    outline: none;
+    border: 1px solid #ccc;
+    height: 40px;
+    width: 100%;
+}
+
+#suggestions-box-container{
+  width: 100%;
+  text-align: center;
+  align-items: center;
+}
+
+#suggestions-box-container > textarea{
+  height: 200px;
+  width: 100%;
+  outline: none;
+  border-radius: 5px;
+  resize: none;
+  border: 1px solid #ccc;
+}
+
+#suggestions-box-container > h2{
+  text-align: left;
+}
+
+.form-container-children > div{
+  margin-bottom: 5%;
+}
+
+.soften{
+  font-weight: 100;
+  font-size: 0.7em;
+}
+
+.button-container{
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 10%;
+}
+
+.button-container button{
+  margin: 1%;
+}
+
+/* office section */
+#office-items-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+

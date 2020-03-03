@@ -8,6 +8,7 @@ import Home from './components/home'
 import Social from './components/social'
 import Nav from './components/nav'
 import Games from './components/games'
+import Form from './components/form'
 
 let App = () => {
   return (
@@ -22,6 +23,7 @@ let App = () => {
                 <Route path="/social" component={Social} />
                 <Route path="/calendar" component={Calendar} />
                 <Route path="/games" component={Games} />
+                <Route path="/forms" component={Form} />
               </Switch>
             )}
           />

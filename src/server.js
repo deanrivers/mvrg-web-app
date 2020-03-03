@@ -14,9 +14,18 @@ app.get('/express_backend/:searchTerm', async (req, res) => {
   var searchTerms = req.params.searchTerm.split(',');
   //console.log(searchTerms)
   console.log('Before filter',searchTerms)
+
   //use map to add string to each item
   let x = searchTerms.map( (item,index)=>{
-    return item+'%20'
+    //replace ands with %20
+    var str = item
+    var res = str.replace(/ and /gi,'%20')
+    //only append "ors" to every term cluster before the last item
+    if(index===searchTerms.length-1){
+      return res
+    } else{
+      return res+'%20OR%20'
+    }
   })
 
   // for(var i = 0;i<searchTerms.length;i++){
@@ -32,9 +41,6 @@ app.get('/express_backend/:searchTerm', async (req, res) => {
   console.log('Post filter',x)
   let completeQuery = x.join('')
   console.log('Complete Query:',completeQuery)
-    //console.log(req)
-    //res.send({ express: 'YOUR EXPRESS BACKEND IS CONNECTED TO REACT' });
-    //console.log(req.body)
 
     //twitter
     const twitterCredentials = {
@@ -71,12 +77,13 @@ app.get('/express_backend/:searchTerm', async (req, res) => {
       
       try{
         
-          let query = '?q='+completeQuery
+          let query = completeQuery
 
           //(soccer%20OR%20basketball)
           //https://api.linkedin.com/v1/companies/1337/updates?start=20&count=10&format=json
 
-          let completeURL = 'https://api.twitter.com/1.1/search/tweets.json'+query+'&tweet_mode=extended&result_type=recent'
+          let completeURL = 'https://api.twitter.com/1.1/search/tweets.json?q=('+query+')&tweet_mode=extended&result_type=recent'
+          console.log('Complete URL:',completeURL)
           const response = await axios.get(completeURL, config)
           const data = await response.data
 
