@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "proxy": "http://localhost:5000",
-  "homepage": "https://deanrivers.github.io/mvrg-touch-app/",
+  "homepage": "https://deanrivers.github.io/mvrg-web-app/",
   "dependencies": {
     "@fullcalendar/core": "^4.4.0",
     "@fullcalendar/daygrid": "^4.4.0",

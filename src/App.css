@@ -481,8 +481,25 @@ h1{
 /* office section */
 #office-items-container{
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     flex-wrap: wrap;
+}
+
+#quantity-container{
+  margin-left: 10%;
+}
+
+#checkbox-container{
+  margin-top: 10%;
+}
+
+#office-quantity{
+  height: 40px;
+  width: 40px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  outline: none;
+  cursor: pointer;
 }
 

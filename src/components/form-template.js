@@ -41,6 +41,7 @@ class FormTemplate extends Component{
             var suggestionText
             var officeItem
             var officeQuantity
+            var checkedbox
             
             console.log(nameInput)
 
@@ -58,12 +59,15 @@ class FormTemplate extends Component{
                 nameInput = document.getElementById('office-name-input').value
                 officeItem = document.getElementById('office-input').value
                 officeQuantity = document.getElementById('office-quantity').value
-                if(nameInput!==''&&officeItem!==''){
+                checkedbox = document.getElementById('office-checkbox').checked
+                if(nameInput!==''&&officeItem!==''&&checkedbox){
                     this.setState({showThanks:true})
                     setTimeout( ()=>{
                         this.props.reload()
                     },2000)
                 }
+            } else if(this.props.type!==''){
+
             }
             
         } catch(error){
@@ -105,15 +109,15 @@ class FormTemplate extends Component{
                             </select>
                         </div>
                     </div>
+                    <div id="checkbox-container">
+                        <input id="office-checkbox" type="checkbox"/>
+                        <span>I have checked and confirmed these items are <u>not</u> in the supply closets.</span>
+                    </div>
                     <div className="button-container">   
                         <button onClick={this.props.reload} className="button">Cancel</button>
                         <button onClick={this.validate} className="button">Submit</button>
                     </div>
-                    <div id="checkbox-container">
-                        <input type="checkbox"/>
-                        <p>I have checked and confirmed these items are <u>not</u> in the supply closets.</p>
-
-                    </div>
+                    
                 </div>
         } else if(this.props.type==='kitchen'){
             console.log('kitchen')

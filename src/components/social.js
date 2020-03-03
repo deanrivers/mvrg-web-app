@@ -51,12 +51,13 @@ class Social extends Component {
 
   render() {
     console.log('twitter data....',this.state.twitterData)
-    // console.log(this.state.twitterData.length)
     let feedList = this.state.twitterData.map((item, index) => {
     let d = new Date(this.state.twitterData[index]['created_at'])
     let n = d.toDateString()
-    console.log(typeof(n))
       return (
+        
+
+        <FadeIn>
           <div key={index} className="feed-children-container">
             <p className="username">{this.state.twitterData[index]['user']['name']}</p>
             <p id="screen-name" className="username">@{this.state.twitterData[index]['user']['screen_name']}</p>
@@ -68,17 +69,21 @@ class Social extends Component {
               <a href={'https://twitter.com/'+this.state.twitterData[index]['user']['screen_name']+'/status/'+this.state.twitterData[index]['id_str']} target="_blank">
                 <img className="social-image" src={twitterImage}></img>
               </a>
-              
             </div>
           </div>
+        </FadeIn>
       );
     });
 
     return (
       <FadeIn>
         <div id="main-social-container">
+          
+          
           <div id="main-social-list-container">
+            
             {feedList}
+           
           </div>
           <div id="search-container">
             <h1>Edit Search Filter:</h1>
