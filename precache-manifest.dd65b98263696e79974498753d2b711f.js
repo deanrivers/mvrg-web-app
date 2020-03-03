@@ -1,31 +1,31 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "8db39f001e5bc9959b40fab1fec2a2e8",
+    "revision": "695615c240bbdcb1f7473840c7b72f65",
     "url": "/mvrg-touch-app/index.html"
   },
   {
-    "revision": "80cc6e5474151876aaf6",
+    "revision": "6dfee14abad00c15dca2",
     "url": "/mvrg-touch-app/static/css/2.dc08fe7a.chunk.css"
   },
   {
-    "revision": "74cc055acd49d99841b2",
-    "url": "/mvrg-touch-app/static/css/main.a236abcb.chunk.css"
+    "revision": "87fee69d80d5ea339202",
+    "url": "/mvrg-touch-app/static/css/main.b817574d.chunk.css"
   },
   {
-    "revision": "80cc6e5474151876aaf6",
-    "url": "/mvrg-touch-app/static/js/2.1b906632.chunk.js"
+    "revision": "6dfee14abad00c15dca2",
+    "url": "/mvrg-touch-app/static/js/2.e8299e9c.chunk.js"
   },
   {
     "revision": "dc29125a3e60460bc2514ea8e410635a",
-    "url": "/mvrg-touch-app/static/js/2.1b906632.chunk.js.LICENSE.txt"
+    "url": "/mvrg-touch-app/static/js/2.e8299e9c.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "74cc055acd49d99841b2",
-    "url": "/mvrg-touch-app/static/js/main.afebdb8a.chunk.js"
+    "revision": "87fee69d80d5ea339202",
+    "url": "/mvrg-touch-app/static/js/main.6ab0cb3a.chunk.js"
   },
   {
-    "revision": "47156afd3ed0950f5c69",
-    "url": "/mvrg-touch-app/static/js/runtime-main.430061c7.js"
+    "revision": "cd1242d4b485230a695f",
+    "url": "/mvrg-touch-app/static/js/runtime-main.0f96009f.js"
   },
   {
     "revision": "5601cf2d9f936889cfba38c7723377ed",

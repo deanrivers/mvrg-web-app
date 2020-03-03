@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/mvrg-touch-app/precache-manifest.f8fd012534e31b5f2c980fdd98770c48.js"
+  "/mvrg-touch-app/precache-manifest.dd65b98263696e79974498753d2b711f.js"
 );
 
 self.addEventListener('message', (event) => {
