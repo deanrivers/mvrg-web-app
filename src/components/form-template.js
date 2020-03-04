@@ -6,7 +6,7 @@ class FormTemplate extends Component{
     constructor(props){
         super(props)
         this.state={
-            showThanks:false,
+            showThanks:true,
             formValues:{
                 office:{
                     name: '',
@@ -25,7 +25,9 @@ class FormTemplate extends Component{
 
                 },
                 work:{
-
+                    name:'',
+                    request:'',
+                    category:''
                 }
             }
         }
@@ -42,6 +44,10 @@ class FormTemplate extends Component{
             var officeItem
             var officeQuantity
             var checkedbox
+
+            //set variables for work
+            var workRequestText
+            var urgencyValue
             
             console.log(nameInput)
 
@@ -66,8 +72,16 @@ class FormTemplate extends Component{
                         this.props.reload()
                     },2000)
                 }
-            } else if(this.props.type!==''){
-
+            } else if(this.props.type==='work'){//work
+                nameInput = document.getElementById('work-name-input').value
+                workRequestText = document.getElementById('work-text').value
+                urgencyValue = document.getElementById('urgency-select').value
+                if(nameInput!==''&&workRequestText!==''){
+                    this.setState({showThanks:true})
+                    setTimeout( ()=>{
+                        this.props.reload()
+                    },2000)
+                }
             }
             
         } catch(error){
@@ -95,7 +109,7 @@ class FormTemplate extends Component{
                         </div>
                         <div id="quantity-container">
                             <p>Quantity</p>
-                            <select id="office-quantity">
+                            <select id="office-quantity" className="pulldown">
                                 <option value='1'>1</option>
                                 <option value='2'>2</option>
                                 <option value='3'>3</option>
@@ -143,6 +157,30 @@ class FormTemplate extends Component{
             console.log('lunch')
         } else if(this.props.type==='work'){
             console.log('work')
+            html = <div id="work">
+                        <div className="name-container">
+                            <h2>Name</h2>
+                            <input id="work-name-input" className="name-input" type="text"></input>
+                        </div>
+                        <div id="suggestions-box-container">
+                            <h2>Request:</h2>
+                            <textarea id="work-text"></textarea>
+                        </div>
+                       
+                        <div id="urgency-container">
+                        <p>Urgency Category:</p>
+                            <select id="urgency-select" className="pulldown">
+                                <option value='emergency'>emergency</option>
+                                <option value='one day'>one day</option>
+                                <option value='one week'>one week</option>
+                                <option value='when possible'>when possible</option>
+                            </select>
+                        </div>
+                        <div className="button-container">
+                            <button onClick={this.props.reload} className="button">Cancel</button>
+                            <button onClick={this.validate} className="button">Submit</button>
+                        </div>
+                    </div>
         } else{
             console.log('something went wrong.')
         }
@@ -150,7 +188,7 @@ class FormTemplate extends Component{
         return(
             <div id="form-template-container">
                 <FadeIn>
-                    {this.state.showThanks?<p>Thanks! you will now be redirected to the forms page</p>:html}
+                    {this.state.showThanks?<p style={{textAlign:'center'}}>Thanks! you will now be redirected to the forms page</p>:html}
                 </FadeIn>
                 
             </div>

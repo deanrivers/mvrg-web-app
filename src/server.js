@@ -28,16 +28,6 @@ app.get('/express_backend/:searchTerm', async (req, res) => {
     }
   })
 
-  // for(var i = 0;i<searchTerms.length;i++){
-  //   if(i==0){
-  //     x.splice(i+1, 0, orOperator)
-  //   }
-  //   if(i==searchTerms.length-1){
-  //     x.splice(i, 0, orOperator)
-  //   }
-  // }
-
-
   console.log('Post filter',x)
   let completeQuery = x.join('')
   console.log('Complete Query:',completeQuery)

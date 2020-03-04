@@ -390,6 +390,10 @@ h1{
   
 }
 
+#form-template-container{
+  width: 80%;
+}
+
 #form-choices-container{
   display: flex;
   justify-content: center;
@@ -494,9 +498,9 @@ h1{
   margin-top: 10%;
 }
 
-#office-quantity{
+.pulldown{
   height: 40px;
-  width: 40px;
+  
   border: 1px solid #ccc;
   border-radius: 5px;
   outline: none;
