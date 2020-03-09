@@ -72,18 +72,15 @@ class Social extends Component {
             </div>
           </div>
         </FadeIn>
+        
       );
     });
 
     return (
       <FadeIn>
         <div id="main-social-container">
-          
-          
           <div id="main-social-list-container">
-            
             {feedList}
-           
           </div>
           <div id="search-container">
             <h1>Edit Search Filter:</h1>

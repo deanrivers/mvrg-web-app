@@ -382,11 +382,12 @@ h1{
 
 /* forms section */
 #form-homepage-container{
+  margin: 0 auto;
   margin-top: 10%;
   display: flex;
   justify-content: center;
   /* flex-direction: column; */
-  width: 100%;
+  width: 80%;
   
 }
 
@@ -507,3 +508,12 @@ h1{
   cursor: pointer;
 }
 
+#job-number-container{
+  margin-top: 1%;
+  color: rgb(175, 175, 175);
+  font-size: 0.5em;
+}
+
+#job-number-container span{
+
+}

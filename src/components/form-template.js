@@ -1,12 +1,13 @@
 import React, {Component} from 'react'
 import FadeIn from 'react-fade-in'
+var randomstring = require("randomstring");
 
 
 class FormTemplate extends Component{
     constructor(props){
         super(props)
         this.state={
-            showThanks:true,
+            showThanks:false,
             formValues:{
                 office:{
                     name: '',
@@ -27,7 +28,9 @@ class FormTemplate extends Component{
                 work:{
                     name:'',
                     request:'',
-                    category:''
+                    category:'',
+                    id:'',
+                    date:''
                 }
             }
         }
@@ -92,7 +95,7 @@ class FormTemplate extends Component{
     render(){
         
         var html
-        console.log(this.props)
+
 
         //determing html to render
         if(this.props.type==='office'){
@@ -131,7 +134,6 @@ class FormTemplate extends Component{
                         <button onClick={this.props.reload} className="button">Cancel</button>
                         <button onClick={this.validate} className="button">Submit</button>
                     </div>
-                    
                 </div>
         } else if(this.props.type==='kitchen'){
             console.log('kitchen')
@@ -156,30 +158,48 @@ class FormTemplate extends Component{
         } else if(this.props.type==='lunch'){
             console.log('lunch')
         } else if(this.props.type==='work'){
+
             console.log('work')
+            var date = new Date()
+            var jobNumber = randomstring.generate(7)
             html = <div id="work">
-                        <div className="name-container">
-                            <h2>Name</h2>
-                            <input id="work-name-input" className="name-input" type="text"></input>
+                        <div id="work-top-row">
+                            <div className="name-container">
+                                <h2>Name:</h2>
+                                <input id="work-name-input" className="name-input" type="text"></input>
+                            </div>
+                            
+                            
+
+                            
                         </div>
+
                         <div id="suggestions-box-container">
                             <h2>Request:</h2>
                             <textarea id="work-text"></textarea>
                         </div>
-                       
+                        
                         <div id="urgency-container">
-                        <p>Urgency Category:</p>
+                        <h3>Urgency Category:</h3>
                             <select id="urgency-select" className="pulldown">
-                                <option value='emergency'>emergency</option>
-                                <option value='one day'>one day</option>
-                                <option value='one week'>one week</option>
-                                <option value='when possible'>when possible</option>
+                                <option value='when possible'>When Possible</option>
+                                <option value='one day'>One Day</option>
+                                <option value='one week'>One Week</option>
+                                <option value='emergency'>Emergency</option>
                             </select>
                         </div>
+                        <div id="job-number-container">
+                            <span>#{jobNumber}</span>
+                            <span> Date: {date.toDateString()}</span>
+                        </div>
+
+                      
+
                         <div className="button-container">
                             <button onClick={this.props.reload} className="button">Cancel</button>
                             <button onClick={this.validate} className="button">Submit</button>
                         </div>
+                        
                     </div>
         } else{
             console.log('something went wrong.')
