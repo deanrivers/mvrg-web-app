@@ -13,17 +13,14 @@ class FormTemplate extends Component{
                     name: '',
                     item:'',
                     quantity:0
-
                 },
                 kitchen:{
-
                 },
                 suggestions:{
                     name:'',
                     suggestions:''
                 },
                 lunch:{
-
                 },
                 work:{
                     name:'',
@@ -32,9 +29,34 @@ class FormTemplate extends Component{
                     id:'',
                     date:''
                 }
-            }
+            },
+            staticList:['Diet Soda','Keurig Pods','Popcorn','Milk','Heavy Cream','Half & Half',
+                        'Orange Juice','Coffee Dreamer','Coconut Milk','Butter','Cream Cheese',
+                        'Ketchup','Sugar','Splenda','Sweet & Low','Hot Chocolate','Decaf','Coffee Grounds',
+                        'Cups','Spoon','Forks','Knoves','Coffee Filters','Paper Plates','Tea','Salt','Pepper',
+                        'Red Pepper Flakes','Balsamic Vinagrette','Crushed Red Pepper'],
+            shoppingList:[]
+
         }
         this.validate = this.validate.bind(this)
+        this.addToShoppingList = this.addToShoppingList.bind(this)
+        this.removeFromShoppingList = this.removeFromShoppingList.bind(this)
+    }
+
+    addToShoppingList(index){
+        var shoppingList = this.state.shoppingList
+        var staticList = this.state.staticList
+        shoppingList.push(staticList[index])
+        staticList.splice(index,1)       
+        this.setState({staticList:staticList,shoppingList})
+    }
+
+    removeFromShoppingList(index){
+        var shoppingList = this.state.shoppingList
+        var staticList = this.state.staticList
+        staticList.unshift(shoppingList[index])
+        shoppingList.splice(index,1)
+        this.setState({staticList:staticList,shoppingList})
     }
 
     validate(){
@@ -47,14 +69,15 @@ class FormTemplate extends Component{
             var officeItem
             var officeQuantity
             var checkedbox
+            var list = []
 
             //set variables for work
             var workRequestText
             var urgencyValue
             
+            
             console.log(nameInput)
 
-            
             if(this.props.type==='suggestions'){ //suggestions
                 nameInput = document.getElementById('suggestion-name-input').value
                 suggestionText = document.getElementById('suggestion-text').value
@@ -96,7 +119,6 @@ class FormTemplate extends Component{
         
         var html
 
-
         //determing html to render
         if(this.props.type==='office'){
             console.log('office')
@@ -137,6 +159,53 @@ class FormTemplate extends Component{
                 </div>
         } else if(this.props.type==='kitchen'){
             console.log('kitchen')
+            html=<div className="form-container-children">
+                    <div id="main-shopping-container">
+                        <div className="list-containers">
+                            <h1>Items</h1>
+                            <ul className="lists" id="shopping-list">
+                                {this.state.staticList.map( (item,index)=>{
+                                    return(
+                                        <FadeIn delay={200}>
+                                            <div key={index} className="item-list-children">
+                                                <li>{item}
+                                                    <button onClick={()=>this.addToShoppingList(index)} className="shopping-buttons"><i class="fa fa-plus"></i></button>
+                                                </li>
+                                            </div>
+                                        </FadeIn>
+                                    
+                                    )
+                                })}
+                            </ul>
+                            
+                        </div>
+
+                        <div className="list-containers">
+                            <h1>Shopping List</h1>
+                            <ul className="lists" id="shopping-list">
+                                {this.state.shoppingList.map( (item,index)=>{
+                                    return(
+                                        <FadeIn>
+                                            <div key={index} className="shopping-list-children">
+                                                <li>{item}
+                                                    <button onClick={()=>this.removeFromShoppingList(index)} className="shopping-buttons"><i className="fa fa-close"></i></button>
+                                                </li>
+                                            </div>
+                                        </FadeIn>
+                                        
+                                    
+                                    
+                                    )
+                                })}
+                            </ul>
+                        </div>
+                    </div>
+                    <div className="button-container">
+                        <button onClick={this.props.reload} className="button">Cancel</button>
+                        <button onClick={this.validate} className="button">Submit</button>
+                        
+                    </div>
+                </div>
         } else if(this.props.type==='suggestions'){
             console.log('suggestions')
             html=<div className="form-container-children">
@@ -168,9 +237,16 @@ class FormTemplate extends Component{
                                 <h2>Name:</h2>
                                 <input id="work-name-input" className="name-input" type="text"></input>
                             </div>
-                            
-                            
 
+                            <div id="urgency-container">
+                                <h1>Urgency Category:</h1>
+                                <select id="urgency-select" className="pulldown">
+                                    <option value='when possible'>When Possible</option>
+                                    <option value='one day'>One Day</option>
+                                    <option value='one week'>One Week</option>
+                                    <option value='emergency'>Emergency</option>
+                                </select>
+                            </div>
                             
                         </div>
 
@@ -179,15 +255,7 @@ class FormTemplate extends Component{
                             <textarea id="work-text"></textarea>
                         </div>
                         
-                        <div id="urgency-container">
-                        <h3>Urgency Category:</h3>
-                            <select id="urgency-select" className="pulldown">
-                                <option value='when possible'>When Possible</option>
-                                <option value='one day'>One Day</option>
-                                <option value='one week'>One Week</option>
-                                <option value='emergency'>Emergency</option>
-                            </select>
-                        </div>
+                        
                         <div id="job-number-container">
                             <span>#{jobNumber}</span>
                             <span> Date: {date.toDateString()}</span>
@@ -199,7 +267,6 @@ class FormTemplate extends Component{
                             <button onClick={this.props.reload} className="button">Cancel</button>
                             <button onClick={this.validate} className="button">Submit</button>
                         </div>
-                        
                     </div>
         } else{
             console.log('something went wrong.')

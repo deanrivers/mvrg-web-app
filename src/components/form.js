@@ -31,9 +31,6 @@ class Form extends Component{
         }
         
         this.setState({formChildActive:true,formType:typeDict[formType]})
-        // this.setState((prevState)=>{
-        //     formChildActive:prevState.formChildActive
-        // })
         console.log(this.state)
     }
 
@@ -52,8 +49,6 @@ class Form extends Component{
             )
         })}
         </FadeIn>
-        
-        
 
     </div>
         var html = !this.state.formChildActive?home:<FormTemplate type={this.state.formType} reload={()=>this.reloadView()}/>

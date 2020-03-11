@@ -9,6 +9,7 @@ import Social from './components/social'
 import Nav from './components/nav'
 import Games from './components/games'
 import Form from './components/form'
+import Employees from './components/employees'
 
 let App = () => {
   return (
@@ -22,8 +23,10 @@ let App = () => {
                 <Route path="/home" component={Home} exact />
                 <Route path="/social" component={Social} />
                 <Route path="/calendar" component={Calendar} />
+                <Route path="/employees" component={Employees} />
                 <Route path="/games" component={Games} />
                 <Route path="/forms" component={Form} />
+                <Route path="" component={Home}/>
               </Switch>
             )}
           />

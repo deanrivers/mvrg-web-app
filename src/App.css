@@ -387,7 +387,7 @@ h1{
   display: flex;
   justify-content: center;
   /* flex-direction: column; */
-  width: 80%;
+  width: 100%;
   
 }
 
@@ -501,7 +501,6 @@ h1{
 
 .pulldown{
   height: 40px;
-  
   border: 1px solid #ccc;
   border-radius: 5px;
   outline: none;
@@ -515,5 +514,83 @@ h1{
 }
 
 #job-number-container span{
+
+}
+
+/* shopping container */
+#main-shopping-container{
+  display: flex;
+  justify-content: space-evenly;
+  /* align-items: center; */
+  flex-wrap: wrap;
+  width: 100%;
+  background-color: rgb(228, 228, 228);
+  padding: 5%;
+  border-radius: 10px;
+  max-height: 500px;
+  overflow-y: scroll;
+}
+
+.lists{
+  list-style: none;
+  padding: 0;
+  margin: 0 auto;
+}
+
+.lists li{
+  margin:0%;
+  margin-left: 0;
+  cursor: default;
+  padding: 5%;
+  padding-right: 0;
+  transition: 0.2s;
+  
+}
+
+.lists li:hover{
+  
+}
+
+.list-containers h1{
+  text-align: left;
+}
+
+.lists li:hover{
+  background-color: aquamarine;
+}
+
+.lists li:hover:after{
+  /* content: '   +'; */
+  /* background-color: red; */
+  /* cursor: pointer; */
+}
+
+.list-containers{
+  /* margin: 10%; */
+  
+  width: 50%;
+}
+
+.shopping-list-children,.item-list-children{
+  /* border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc; */
+  margin-bottom: 5%;
+}
+
+.shopping-list-children li:hover{
+  background-color: rgb(255, 115, 115);
+}
+
+.shopping-buttons{
+  margin-left: 2%;
+  border-radius: 2px;
+  background: none;
+  border: none;
+  outline: none;
+  transition: 0.2s;
+  cursor: pointer;
+}
+
+.shopping-buttons:hover{
 
 }
