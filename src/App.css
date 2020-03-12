@@ -68,7 +68,7 @@ h1{
 #main-nav-container{
   display: flex;
   justify-content: space-between;
-  background-color: #4e77a1;
+  background-color: rgb(71,84,98);
   position: fixed;
   width: 100%;
   height: 80px;
@@ -259,7 +259,12 @@ h1{
   margin-right: 2%;
   margin-bottom: 2%;
   cursor: pointer;
+  transition: 0.2s ease-in-out;
 }
+.social-image:hover{
+  max-width: 40px;  
+}
+
 
 #main-home-container{
   
@@ -383,7 +388,7 @@ h1{
 /* forms section */
 #form-homepage-container{
   margin: 0 auto;
-  margin-top: 10%;
+  margin-top: 7%;
   display: flex;
   justify-content: center;
   /* flex-direction: column; */
@@ -404,19 +409,22 @@ h1{
 
 .form-choice-children > button{
   margin: 5%;
-  border: 1px solid #ddd;
-  border-radius: 10px;
+  /* border: 1px solid #ddd; */
+  border: none;
+  border-radius: 5px;
   padding: 10px;
   width: 400px;
   height: 50px;
   text-align: center;
   cursor: pointer;
   outline: none;
-  transition: 0.3s ease-in-out;
+  transition: 0.2s ease-in-out;
+  background-color: white;
+  box-shadow: 1px 1px 4px 0px #ccc;
 }
 
 .form-choice-children > button:hover{
-  background-color: #96bde4;
+  background-color: rgb(214, 234, 255)
 }
 
 /* suggestions form */
@@ -476,7 +484,7 @@ h1{
   display: flex;
   justify-content: center;
   width: 100%;
-  margin-top: 10%;
+  margin-top: 5%;
 }
 
 .button-container button{
@@ -524,40 +532,41 @@ h1{
   /* align-items: center; */
   flex-wrap: wrap;
   width: 100%;
-  background-color: rgb(228, 228, 228);
-  padding: 5%;
+  /* background-color: rgb(228, 228, 228);
+  padding: 5%; */
   border-radius: 10px;
-  max-height: 500px;
-  overflow-y: scroll;
+  height: 100%;
+  /* max-height: 500px; */
 }
 
 .lists{
   list-style: none;
   padding: 0;
   margin: 0 auto;
+  background-color: white;
 }
 
 .lists li{
   margin:0%;
   margin-left: 0;
   cursor: default;
-  padding: 5%;
+  padding: 3%;
   padding-right: 0;
-  transition: 0.2s;
-  width: 60%;
-  
+  transition: .2s ease-in-out; 
+   
 }
 
 .lists li:hover{
   
 }
 
-.list-containers h1{
+.form-container-children h3{
   text-align: left;
+  padding-left: 5%;
 }
 
 .lists li:hover{
-  background-color: aquamarine;
+  background-color: rgb(232, 255, 247);
 }
 
 .lists li:hover:after{
@@ -575,23 +584,140 @@ h1{
 .shopping-list-children,.item-list-children{
   /* border-top: 1px solid #ccc;
   border-bottom: 1px solid #ccc; */
-  margin-bottom: 5%;
+  margin-bottom: 0%;
 }
 
 .shopping-list-children li:hover{
-  background-color: rgb(255, 115, 115);
+  background-color: rgb(255, 226, 226);
 }
 
-.shopping-buttons{
+#shopping-list{
+  width: 100%;
+  display: flex;
+    /* justify-content: center; */
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+}
+
+.q-shopping-buttons{
+  width: 30px;
   margin-left: 2%;
-  border-radius: 2px;
+  border-radius: 200px;
   background: none;
   border: none;
   outline: none;
   transition: 0.2s;
   cursor: pointer;
+  padding: 5px;
+  background-color: rgb(169, 255, 219);
+  opacity: 0.5;
+  transition: 0.2s;
 }
 
-.shopping-buttons:hover{
+.q-shopping-buttons:hover{
+  background-color: rgb(0, 255, 170);
+}
+.final-shopping-buttons{
+  width: 30px;
+  margin-left: 2%;
+  border-radius: 200px;
+  background: none;
+  border: none;
+  outline: none;
+  transition: 0.2s;
+  cursor: pointer;
+  padding: 5px;
+  background-color: rgb(255, 160, 160);
+  opacity: 0.5;
+  transition: 0.2s;
+}
 
+.final-shopping-buttons:hover{
+  background-color: rgb(255, 86, 86);
+}
+#q-list-container{
+  height: 100%;
+}
+
+#q-list{
+  /* background-color: rgb(152, 223, 226); */
+  overflow-y: scroll;
+  height: 100%;
+  
+  max-height: 500px;
+}
+
+#final-list{
+  /* background-color: rgb(255, 168, 137); */
+  /* box-shadow: 1px 1px 5px 1px #ccc; */
+  border: 0px solid #ccc;
+  box-shadow: 1px 1px 10px 1px #ccc;
+  border-radius: 5px;
+  background-color: white;
+}
+
+
+#shopping-name-input{
+  margin-bottom: 5%;
+  width: 50%;
+}
+
+#shopping-name-container{
+  /* background-color: cornsilk; */
+}
+
+#left-container{
+  height: 100%;
+    /* overflow: hidden; */
+    width: 40%;
+    border: 0px solid #ccc;
+    box-shadow: 1px 1px 10px 1px #ccc;
+    border-radius: 5px;
+
+}
+
+.q-li{
+  margin-left: 5%;
+  /* background-color: rgb(255, 115, 115); */
+  border-left: 0px solid aquamarine;
+}
+.q-li:hover{
+  border-left: 5px solid rgb(61, 255, 190);
+}
+
+.shopping-li{
+  
+  margin-left: 5%;
+  /* background-color: rgb(255, 115, 115); */
+  border-left: 0px solid rgb(255, 80, 80);
+}
+
+.shopping-li:hover{
+  border-left: 5px solid rgb(255, 80, 80);
+}
+
+/* font awesome icons */
+.q-icon{
+  /* background-color: red; */
+  /* border-radius: 10px; */
+  /* color: white; */
+  color: rgb(0, 179, 119)
+}
+
+.final-icon{
+  color: rgb(200, 0, 0);
+}
+
+#final-header-container{
+  /* background-color: red; */
+}
+
+#shopping-button-container{
+  margin: 0;
+}
+
+ul#shopping-list > div{
+  width: 50%;
 }

@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import FadeIn from 'react-fade-in'
+import $ from 'jquery'
 var randomstring = require("randomstring");
 
 
@@ -31,7 +32,7 @@ class FormTemplate extends Component{
                 }
             },
             staticList:['Diet Soda','Keurig Pods','Popcorn','Milk','Heavy Cream','Half & Half',
-                        'Orange Juice','Coffee Dreamer','Coconut Milk','Butter','Cream Cheese',
+                        'Orange Juice','Coffee Creamer','Coconut Milk','Butter','Cream Cheese',
                         'Ketchup','Sugar','Splenda','Sweet & Low','Hot Chocolate','Decaf','Coffee Grounds',
                         'Cups','Spoon','Forks','Knoves','Coffee Filters','Paper Plates','Tea','Salt','Pepper',
                         'Red Pepper Flakes','Balsamic Vinagrette','Crushed Red Pepper'],
@@ -54,6 +55,10 @@ class FormTemplate extends Component{
     removeFromShoppingList(index){
         var shoppingList = this.state.shoppingList
         var staticList = this.state.staticList
+        //var itemRemoved = $('.shopping-li')[index]
+        // var itemRemoved = document.getElementsByClassName('shopping-li')[index]
+        // console.log('Items to be removed',itemRemoved)
+        // $(itemRemoved).fadeOut()
         staticList.unshift(shoppingList[index])
         shoppingList.splice(index,1)
         this.setState({staticList:staticList,shoppingList})
@@ -161,46 +166,60 @@ class FormTemplate extends Component{
             console.log('kitchen')
             html=<div className="form-container-children">
                     <div id="main-shopping-container">
-                        <div className="list-containers">
-                            <h1>Items</h1>
-                            <ul className="lists" id="shopping-list">
-                                {this.state.staticList.map( (item,index)=>{
-                                    return(
-                                        <FadeIn delay={200}>
-                                            <div key={index} className="item-list-children">
-                                                <li>{item}
-                                                    <button onClick={()=>this.addToShoppingList(index)} className="shopping-buttons"><i class="fa fa-plus"></i></button>
-                                                </li>
-                                            </div>
-                                        </FadeIn>
-                                    
-                                    )
-                                })}
-                            </ul>
-                            
-                        </div>
+                        <h1>Shopping List</h1>
+                        <div id="left-container">
+                            <div id="items-header-container">
+                                <h3>Queue:</h3>
+                            </div>
 
-                        <div className="list-containers">
-                            <h1>Shopping List</h1>
+
+                        
+                            {/* <div id="shopping-name-container" className="name-container">
+                                <h2>Name <span className="soften">(optional)</span></h2>
+                                <input id="shopping-name-input" className="name-input"></input>
+                            </div> */}
+                            {/* <h1>Items</h1> */}
+                            <div id="q-list-container" className="">
+                                
+                                <ul className="lists" id="q-list">
+                                    {this.state.staticList.map( (item,index)=>{
+                                        return(
+                                            <FadeIn key={index} delay={200}>
+                                                <div  className="item-list-children">
+                                                    <li className="q-li">{item}
+                                                        <button onClick={()=>this.addToShoppingList(index)} className="q-shopping-buttons"><i className="fa fa-plus q-icon"></i></button>
+                                                    </li>
+                                                </div>
+                                            </FadeIn>
+                                        )
+                                    })}
+                                </ul>
+                            </div>
+                        </div>
+                        
+
+                        <div id="final-list" className="list-containers">
+                            <div id="final-header-container">
+                                <div id="final-header-container">
+                                    <h3>Items:</h3>
+                                </div>
+                            </div>
                             <ul className="lists" id="shopping-list">
                                 {this.state.shoppingList.map( (item,index)=>{
                                     return(
-                                        <FadeIn>
-                                            <div key={index} className="shopping-list-children">
-                                                <li>{item}
-                                                    <button onClick={()=>this.removeFromShoppingList(index)} className="shopping-buttons"><i className="fa fa-close"></i></button>
+                                        <FadeIn key={index}>
+                                            <div className="shopping-list-children">
+                                                <li className="shopping-li">{item}
+                                                    <button onClick={()=>this.removeFromShoppingList(index)} className="final-shopping-buttons"><i className="fa fa-close final-icon"></i></button>
                                                 </li>
                                             </div>
                                         </FadeIn>
-                                        
-                                    
-                                    
                                     )
                                 })}
                             </ul>
                         </div>
                     </div>
-                    <div className="button-container">
+                    <div className="button-container" id="shopping-button-container">
                         <button onClick={this.props.reload} className="button">Cancel</button>
                         <button onClick={this.validate} className="button">Submit</button>
                         
