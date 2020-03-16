@@ -67,7 +67,6 @@ class Search extends Component{
 
     queryChange(e){
         let queryTerms = this.state.queryTerms
-
         //add to query array if checked true
         if(e.target.checked){
             queryTerms.push(e.target.value)
