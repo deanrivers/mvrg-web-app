@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "3c43766444ede970cc7cc7f1bb063a1a",
+    "revision": "7976df088eded095a879fb47893a0e08",
     "url": "/mvrg-web-app/index.html"
   },
   {
@@ -8,8 +8,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/mvrg-web-app/static/css/2.dc08fe7a.chunk.css"
   },
   {
-    "revision": "fb7c0023abc5975609cd",
-    "url": "/mvrg-web-app/static/css/main.2c9e6614.chunk.css"
+    "revision": "15487f5df1e6bb97ec58",
+    "url": "/mvrg-web-app/static/css/main.fcd2b08e.chunk.css"
   },
   {
     "revision": "f3939a8ed46faf6a3b3d",
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/mvrg-web-app/static/js/2.46b90d7e.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "fb7c0023abc5975609cd",
-    "url": "/mvrg-web-app/static/js/main.d9822a61.chunk.js"
+    "revision": "15487f5df1e6bb97ec58",
+    "url": "/mvrg-web-app/static/js/main.e6bca777.chunk.js"
   },
   {
     "revision": "ddc295d773092268bde0",
