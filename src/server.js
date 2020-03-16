@@ -66,9 +66,7 @@ app.get('/express_backend/:searchTerm', async (req, res) => {
         }
       
       try{
-        
           let query = completeQuery
-
           //(soccer%20OR%20basketball)
           //https://api.linkedin.com/v1/companies/1337/updates?start=20&count=10&format=json
 

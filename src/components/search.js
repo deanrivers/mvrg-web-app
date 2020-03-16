@@ -33,7 +33,7 @@ class Search extends Component{
                 el.classList.remove('input-wiggle');
             }, 500);
             this.setState({searchTerms,text:''})
-        }        
+        }
     }
 
     removeItem(index,item){
