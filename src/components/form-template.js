@@ -35,7 +35,7 @@ class FormTemplate extends Component{
                         'Orange Juice','Coffee Creamer','Coconut Milk','Butter','Cream Cheese',
                         'Ketchup','Sugar','Splenda','Sweet & Low','Hot Chocolate','Decaf','Coffee Grounds',
                         'Cups','Spoon','Forks','Knives','Coffee Filters','Paper Plates','Tea','Salt','Pepper',
-                        'Red Pepper Flakes','Balsamic Vinagrette','Crushed Red Pepper'],
+                        'Red Pepper Flakes','Balsamic Vinagrette','Crushed Red Pepper','Food'],
             shoppingList:[]
 
         }
