@@ -34,7 +34,7 @@ class FormTemplate extends Component{
             staticList:['Diet Soda','Keurig Pods','Popcorn','Milk','Heavy Cream','Half & Half',
                         'Orange Juice','Coffee Creamer','Coconut Milk','Butter','Cream Cheese',
                         'Ketchup','Sugar','Splenda','Sweet & Low','Hot Chocolate','Decaf','Coffee Grounds',
-                        'Cups','Spoon','Forks','Knoves','Coffee Filters','Paper Plates','Tea','Salt','Pepper',
+                        'Cups','Spoon','Forks','Knives','Coffee Filters','Paper Plates','Tea','Salt','Pepper',
                         'Red Pepper Flakes','Balsamic Vinagrette','Crushed Red Pepper'],
             shoppingList:[]
 

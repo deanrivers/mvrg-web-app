@@ -150,7 +150,7 @@ h1{
   /* border: 1px solid; */
   border-radius: 15px;
   margin: 2%;
-  background-color: rgb(218, 218, 218);
+  background-color: rgb(195,203,212);
   padding: 2%;
   height: 20%
 }
@@ -211,7 +211,7 @@ h1{
 .button{
   border: none;
   outline: none;
-  background-color: #66a643;
+  background-color: rgb(146,208,80);
   color: white;
   border-radius: 5px;
   padding: 10px;
@@ -219,7 +219,7 @@ h1{
   cursor: pointer;
 }
 .button:hover{
-  background-color: #88c866;
+  background-color: rgb(118, 187, 45);
 }
 
 #reset-button{
@@ -382,7 +382,8 @@ h1{
 }
 
 .search-item-label:hover{
-  background-color: #d2d2d2;
+  background-color: rgb(215, 224, 235);
+  /* width: 100%; */
 }
 
 /* forms section */
@@ -397,7 +398,7 @@ h1{
 }
 
 #form-template-container{
-  width: 80%;
+  width: 50%;
 }
 
 #form-choices-container{
