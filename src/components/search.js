@@ -95,7 +95,7 @@ class Search extends Component{
                     return(
                         <div key={index} className="search-term-children">
                             <input type="checkbox" id={item} value={item} onClick={this.queryChange}></input>
-                            <label className="search-item-label" for={item}>{item}</label>
+                            <label className="search-item-label" for={item}><span>{item}</span></label>
                             <button className="close-button" onClick={()=>this.removeItem(index,item)}><i className="fa fa-close"></i></button>
                         </div> 
                     )

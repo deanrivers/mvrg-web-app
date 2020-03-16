@@ -52,7 +52,7 @@ class Calendar extends Component{
                                 center: 'title',
                                 right: ''
                             }}
-                            weekends={false}
+                            weekends={true}
                             events={this.state.events}
                             goToDate={this.state.currentDay}      
                             />
@@ -68,8 +68,11 @@ class Calendar extends Component{
                                 center: 'title',
                                 right: ''
                             }}
-                            weekends={false}
+                            weekends={true}
                             events={this.state.events}
+                            theme={true}
+                            themeSystem='solar'
+                            
                             />
                         </div>
                     </div>       

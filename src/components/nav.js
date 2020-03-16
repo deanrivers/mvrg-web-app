@@ -19,7 +19,6 @@ let Nav = () =>{
                     <li><NavLink activeClassName="activeRoute" className="Nav_Link" to="/games">Games</NavLink></li>
                 </ul>
             </div>
-
         </div>
     )
 }

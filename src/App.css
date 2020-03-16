@@ -1,10 +1,10 @@
-@import url('https://fonts.googleapis.com/css?family=Montserrat:200,300,400&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,500,700&display=swap');
 
 html,body{
   position: relative;
   margin: 0 auto;
   box-sizing: border-box;
-  font-family: Arial, Helvetica, sans-serif;
+  /* font-family: Arial, Helvetica, sans-serif; */
   font-family: 'Montserrat', sans-serif;
   width: 100vw;
   background: #f4f4f3;
@@ -18,8 +18,11 @@ h1{
 
 .activeRoute{
   /* background-color: #729fcc; */
-  color: white;
-  font-weight: bold;
+  color: rgb(50, 79, 138) !important;
+  
+  /* font-weight: 700; */
+  /* background-color: red; */
+
 }
 
 
@@ -48,27 +51,41 @@ h1{
   /* display: flex;
   justify-content: center; */
   padding: 3%;
-  transition: 0.5s;
+  transition: 0.3s ease-in-out;
+  /* font-weight: 500; */
+  ;
+  /* opacity: 0.7; */
+  
 
   
 }
 
 #navbar-list li:hover{
   /* background-color: #729fcc; */
+  
+  /* text-decoration: underline; */
 }
 
 #navbar-list li a{
-  color: white;
+  color: rgb(185, 189, 194);
   text-decoration: none;
+  transition: 0.3s ease-in-out;
+  font-weight: 500;
   /* padding: 3%; */
   
 }
-
+#navbar-list li a:hover{
+  /* color: white; */
+  color: rgb(50, 79, 138);
+}
 
 #main-nav-container{
   display: flex;
   justify-content: space-between;
   background-color: rgb(71,84,98);
+  background-color: rgb(50, 79, 138);
+  background-color: white;
+  border-bottom: 1px solid #ddd;
   position: fixed;
   width: 100%;
   height: 80px;
@@ -150,9 +167,12 @@ h1{
   /* border: 1px solid; */
   border-radius: 15px;
   margin: 2%;
-  background-color: rgb(195,203,212);
+  /* background-color: rgb(196, 203, 213); */
+  /* background-color: rgb(220,220,220); */
+  background-color: white;
   padding: 2%;
-  height: 20%
+  height: 20%;
+  box-shadow: 5px 7px 9px 0px #ccc;
 }
 
 #search-elements{
@@ -379,6 +399,11 @@ h1{
   padding: 2%;
   cursor: pointer;
   transition: 0.1s;
+  width: 100%;
+}
+
+.search-item-label span{
+  width: 100%;
 }
 
 .search-item-label:hover{
@@ -398,7 +423,7 @@ h1{
 }
 
 #form-template-container{
-  width: 50%;
+  width: 70%;
 }
 
 #form-choices-container{
@@ -567,7 +592,8 @@ h1{
 }
 
 .lists li:hover{
-  background-color: rgb(232, 255, 247);
+  /* background-color: rgb(232, 255, 247); */
+  background-color: rgb(235, 255, 215);
 }
 
 .lists li:hover:after{
@@ -612,13 +638,14 @@ h1{
   transition: 0.2s;
   cursor: pointer;
   padding: 5px;
-  background-color: rgb(169, 255, 219);
+  /* background-color: rgb(169, 255, 219); */
+  background-color: rgb(182, 255, 103);
   opacity: 0.5;
   transition: 0.2s;
 }
 
 .q-shopping-buttons:hover{
-  background-color: rgb(0, 255, 170);
+  background-color: rgb(132, 255, 0);
 }
 .final-shopping-buttons{
   width: 30px;
@@ -685,7 +712,8 @@ h1{
   border-left: 0px solid aquamarine;
 }
 .q-li:hover{
-  border-left: 5px solid rgb(61, 255, 190);
+  /* border-left: 5px solid rgb(61, 255, 190); */
+  border-left: 5px solid rgb(146, 208, 80);
 }
 
 .shopping-li{
@@ -704,7 +732,7 @@ h1{
   /* background-color: red; */
   /* border-radius: 10px; */
   /* color: white; */
-  color: rgb(0, 179, 119)
+  color: rgb(96, 158, 29);
 }
 
 .final-icon{
