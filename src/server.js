@@ -11,6 +11,7 @@ app.listen(port, () => console.log(`Listening on port ${port}`));
 
 // create a GET route
 app.get('/express_backend/:searchTerm', async (req, res) => {
+  console.log('backend hit')
   var searchTerms = req.params.searchTerm.split(',');
   //console.log(searchTerms)
   console.log('Before filter',searchTerms)

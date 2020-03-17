@@ -38,7 +38,7 @@ class Social extends Component {
   callBackendAPI = async () => {
     let query = this.state.searchTerms
     const response = await fetch('/express_backend/'+query);
-
+    console.log(response)
     const body = await response.json();
 
     if (response.status !== 200) {
@@ -46,7 +46,7 @@ class Social extends Component {
     }
     console.log('This is the body',body)
     this.setState({twitterData:body['statuses']})
-    return body;
+    return body
   };
 
   render() {
