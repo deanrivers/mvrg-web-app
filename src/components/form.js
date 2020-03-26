@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import FadeIn from 'react-fade-in'
 import FormTemplate from './form-template'
+import { NavLink } from 'react-router-dom'
 
 class Form extends Component{
     constructor(props){
@@ -10,7 +11,7 @@ class Form extends Component{
             'Kitchen shopping list',
             'Suggestions box',
             'Lunch order form',
-            'Work order form'],
+            'Office Work Miscellaneous'],
             formChildActive: false,
             formType: ''
         }
@@ -49,16 +50,15 @@ class Form extends Component{
             )
         })}
         </FadeIn>
-
     </div>
         var html = !this.state.formChildActive?home:<FormTemplate type={this.state.formType} reload={()=>this.reloadView()}/>
-
         return(
-
             <div id="form-homepage-container">
-                {html}
+                
+                    {html}
+                
+                
             </div>
-
         )
     }
 }

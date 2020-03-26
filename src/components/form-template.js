@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import FadeIn from 'react-fade-in'
 import $ from 'jquery'
+import { NavLink } from 'react-router-dom';
 var randomstring = require("randomstring");
 
 
@@ -86,7 +87,7 @@ class FormTemplate extends Component{
             if(this.props.type==='suggestions'){ //suggestions
                 nameInput = document.getElementById('suggestion-name-input').value
                 suggestionText = document.getElementById('suggestion-text').value
-                if(nameInput!==''&&suggestionText!==''){
+                if(suggestionText!==''){
                     this.setState({showThanks:true})
                     setTimeout( ()=>{
                         this.props.reload()
@@ -294,7 +295,9 @@ class FormTemplate extends Component{
         return(
             <div id="form-template-container">
                 <FadeIn>
-                    {this.state.showThanks?<p style={{textAlign:'center'}}>Thanks! you will now be redirected to the forms page</p>:html}
+                    
+                        {this.state.showThanks?<p style={{textAlign:'center'}}>Thanks! you will now be redirected to the forms page</p>:html}
+                    
                 </FadeIn>
                 
             </div>

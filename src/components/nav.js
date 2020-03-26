@@ -7,7 +7,8 @@ let Nav = () =>{
     return(
         <div id="main-nav-container">
             <div id="logo-container">
-                <img className="logo" src={Logo}/>
+                <NavLink to="/home"><img className="logo" src={Logo}/></NavLink>
+                
             </div>
             <div id="navbar-container">
                 <ul id="navbar-list">
