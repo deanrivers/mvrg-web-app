@@ -37,12 +37,14 @@ class FormTemplate extends Component{
                         'Ketchup','Sugar','Splenda','Sweet & Low','Hot Chocolate','Decaf','Coffee Grounds',
                         'Cups','Spoon','Forks','Knives','Coffee Filters','Paper Plates','Tea','Salt','Pepper',
                         'Red Pepper Flakes','Balsamic Vinagrette','Crushed Red Pepper',],
-            shoppingList:[]
+            shoppingList:[],
+            itemLimit:[""],
 
         }
         this.validate = this.validate.bind(this)
         this.addToShoppingList = this.addToShoppingList.bind(this)
         this.removeFromShoppingList = this.removeFromShoppingList.bind(this)
+        this.updateItemCount = this.updateItemCount.bind(this)
     }
 
     addToShoppingList(index){
@@ -65,6 +67,19 @@ class FormTemplate extends Component{
         this.setState({staticList:staticList,shoppingList})
     }
 
+    updateItemCount(e){
+
+        var userLimit = e.target.value
+        var itemLimit = []
+
+        for(var i=1;i<=userLimit;i++){
+            itemLimit.push("")
+        }
+
+        //update DOM
+        this.setState({itemLimit})
+    }
+
     validate(){
         try{
             //general variables
@@ -80,9 +95,6 @@ class FormTemplate extends Component{
             //set variables for work
             var workRequestText
             var urgencyValue
-            
-            
-            console.log(nameInput)
 
             if(this.props.type==='suggestions'){ //suggestions
                 nameInput = document.getElementById('suggestion-name-input').value
@@ -95,8 +107,13 @@ class FormTemplate extends Component{
                 }
             } else if(this.props.type==='office'){ //office
                 nameInput = document.getElementById('office-name-input').value
-                officeItem = document.getElementById('office-input').value
-                officeQuantity = document.getElementById('office-quantity').value
+                console.log(nameInput)
+
+                //this has to change. this is now a class
+                // officeItem = document.getElementById('office-input').value
+                // officeQuantity = document.getElementById('office-quantity').value
+
+
                 checkedbox = document.getElementById('office-checkbox').checked
                 if(nameInput!==''&&officeItem!==''&&checkedbox){
                     this.setState({showThanks:true})
@@ -134,26 +151,53 @@ class FormTemplate extends Component{
                         <input id="office-name-input" className="name-input"></input>
                     </div>
                     <div id="office-items-container">
-                        <div id="item-container">
-                            <p>Item</p>
-                            <input id="office-input" type="text" className="name-input"></input>  
-                        </div>
-                        <div id="quantity-container">
-                            <p>Quantity</p>
-                            <select id="office-quantity" className="pulldown">
-                                <option value='1'>1</option>
-                                <option value='2'>2</option>
-                                <option value='3'>3</option>
-                                <option value='4'>4</option>
-                                <option value='5'>5</option>
-                                <option value='6'>6</option>
-                                <option value='7'>7</option>
-                                <option value='8'>8</option>
-                                <option value='9'>9</option>
-                                <option value='10'>10</option>
+                        <div className="items-count-container">
+
+                            <h2>Number of items</h2>
+                            <select className="items-count" className="pulldown" onChange={this.updateItemCount}>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
                             </select>
                         </div>
+                        <hr/>
+                        <div id="item-container">
+                            {this.state.itemLimit.map( (item,index)=>{
+                                return(
+                                    <div className="item-quantity-container" key={index}>
+                                        <p>Item</p>
+                                        <div className="item-children">
+                                            <input className="office-input" type="text" className="name-input"></input>
+                                            <div className="quantity-container">
+                                                <p>Quantity</p>
+                                                <select className="office-quantity" className="pulldown">
+                                                    <option value='1'>1</option>
+                                                    <option value='2'>2</option>
+                                                    <option value='3'>3</option>
+                                                    <option value='4'>4</option>
+                                                    <option value='5'>5</option>
+                                                    <option value='6'>6</option>
+                                                    <option value='7'>7</option>
+                                                    <option value='8'>8</option>
+                                                    <option value='9'>9</option>
+                                                    <option value='10'>10</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                )
+                            })}
+                        </div>
+                        
+
+                        
+
                     </div>
+
+                    
+
                     <div id="checkbox-container">
                         <input id="office-checkbox" type="checkbox"/>
                         <span>I have checked and confirmed these items are <u>not</u> in the supply closets.</span>
@@ -259,7 +303,7 @@ class FormTemplate extends Component{
                             </div>
 
                             <div id="urgency-container">
-                                <h1>Urgency Category:</h1>
+                                <h2>Urgency Category:</h2>
                                 <select id="urgency-select" className="pulldown">
                                     <option value='when possible'>When Possible</option>
                                     <option value='one day'>One Day</option>

@@ -10,6 +10,7 @@ import Nav from './components/nav'
 import Games from './components/games'
 import Form from './components/form'
 import Employees from './components/employees'
+import FormTemplate from './components/form-template'
 
 let App = () => {
   return (
@@ -26,6 +27,8 @@ let App = () => {
                 <Route path="/employees" component={Employees} />
                 <Route path="/games" component={Games} />
                 <Route path="/forms" component={Form} />
+                <Route path="/forms/form-template" component={Form} />
+                
                 {/* <Route path="/subform" component={SubForm}/> */}
                 <Route path="" component={Home}/>
               </Switch>

@@ -221,6 +221,13 @@ h1{
   margin-top: 5%;
 }
 
+#item-container{
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
 
 
 .button{
@@ -520,8 +527,8 @@ h1{
     flex-wrap: wrap;
 }
 
-#quantity-container{
-  margin-left: 10%;
+.quantity-container{
+  /* margin-left: 10%; */
 }
 
 #checkbox-container{
@@ -744,4 +751,16 @@ h1{
 
 ul#shopping-list > div{
   width: 50%;
+}
+
+.items-count-container{
+  width: 100%;
+}
+
+hr{
+  width: 100%;
+}
+
+.item-quantity-container{
+  width: 45%;
 }

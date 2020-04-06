@@ -43,6 +43,7 @@ class Social extends Component {
 
     if (response.status !== 200) {
       throw Error(body.message)
+      
     }
     console.log('This is the body',body)
     this.setState({twitterData:body['statuses']})
